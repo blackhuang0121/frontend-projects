@@ -1,5 +1,10 @@
 import Image from "next/image";
 import Link from 'next/link';
+import fs from "fs";
+import path from "path";
+import matter from "gray-matter";
+
+// export const dynamic = 'force-dynamic';
 
 const projects = [
   {
@@ -44,7 +49,25 @@ const projects = [
   },
 ];
 
-export default function Home() {
+// 取得最新文章
+async function getLatestPosts(n = 3) {
+  const postsDir = path.join(process.cwd(), "posts");
+  const filenames = fs.readdirSync(postsDir);
+
+  const posts = filenames.map((file) => {
+    const filePath = path.join(postsDir, file);
+    const fileContents = fs.readFileSync(filePath, "utf-8");
+    const { data } = matter(fileContents);
+    return {
+      slug: file.replace(/\.md$/, ""),
+      ...data,
+    };
+  }).sort((a, b) => new Date(b.date) - new Date(a.date));
+  return posts.slice(0, n);
+}
+
+export default async function Home() {
+  const latestPosts = await getLatestPosts(3);
   return (
     <div className="min-h-screen flex flex-col bg-neutral-900 text-white">
       <nav className="absolute top-8 right-8">
@@ -64,10 +87,25 @@ export default function Home() {
             </li>
           ))}
         </ul>
-        <p className="mt-4 text-gray-300 text-center max-w-md">
-          Wont you give yourself a try? Wont you give? - The 1975
+        {/* 最新文章區塊 */}
+        <section className="w-full max-w-2xl my-10">
+          <h2 className="text-xl font-bold mb-4 text-yellow-300">最新文章</h2>
+          <ul>
+            {latestPosts.map((post) => (
+              <li key={post.slug} className="mb-2">
+                <Link href={`/posts/${post.slug}`}
+                  className="text-lg text-blue-400 hover:underline">
+                  {post.title}
+                </Link>
+                <span className="text-gray-400 ml-2 text-sm">{post.date}</span>
+              </li>
+            ))}
+          </ul>
+        </section>
+        <p className="mt-10 text-gray-400 text-center max-w-md">
+          &quot;Won&apos;t you give yourself a try? Won&apos;t you give?&quot; - The 1975
         </p>
-        <div className="mt-6 flex flex-col items-center">
+        <div className="mt-4 mb-6 flex flex-col items-center">
           <Image
             src="/img/DSCF4701.JPG"
             alt="Howard Huang"
@@ -76,8 +114,8 @@ export default function Home() {
             style={{ height: 'auto' }}
             className="rounded object-contain"
           />
-          <p className="mt-2 text-gray-400 text-center max-w-md">
-            Dont wait for the tide just to dip both your feet in - Beabadoobee
+          <p className="mt-4 text-gray-400 text-center max-w-md">
+            &quot;Don&apos;t wait for the tide just to dip both your feet in.&quot; - Beabadoobee
           </p>
         </div>
       </main>
