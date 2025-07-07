@@ -1,4 +1,5 @@
 import Image from "next/image";
+import Link from 'next/link';
 
 const projects = [
   {
@@ -9,20 +10,48 @@ const projects = [
   {
     name: '圖片滑動版',
     desc: '圖片滑動展示',
-    link: '/projects//image-slider/index.html',
+    link: '/projects/image-slider/index.html',
   },
-  // ... 其餘專案
+  {
+    name: '怪奇物語角色',
+    desc: 'Fetch 怪奇物語角色',
+    link: '/projects/stranger-things/index.html',
+  },
+  {
+    name: '隨機出現圖片',
+    desc: '隨機出現',
+    link: '/projects/random-photos/index.html',
+  },
+  {
+    name: 'Fetch 隨機出現圖片',
+    desc: 'Fetch 點選按鈕隨機出現圖片',
+    link: '/projects/random-photos-fetch/index.html',
+  },
+  {
+    name: 'Sidebar Menu',
+    desc: '側邊欄',
+    link: '/projects/sidebar-menu/index.html',
+  },
+  {
+    name: '滑動載入圖片',
+    desc: '點選按鈕隨機出現圖片',
+    link: '/projects/lazy-loading-images/index.html',
+  },
+  {
+    name: 'Dark Mode',
+    desc: '閱讀模式',
+    link: '/projects/dark-mode-toggle/index.html',
+  },
 ];
 
 export default function Home() {
   return (
     <div className="min-h-screen flex flex-col bg-neutral-900 text-white">
-      {/* Header 區塊 */}
-      <header className="py-8 text-center border-b border-neutral-800">
-        <h1 className="text-3xl font-bold mb-2">Frontend Projects made by Howard Huang</h1>
-        <h2 className="text-lg">持續更新中：這裡會收錄我的所有前端練習專案</h2>
-      </header>
-
+      <nav className="absolute top-8 right-8">
+        <Link href="/about" className="text-gray-400 hover:text-yellow-400 transition">
+          About
+        </Link>
+      </nav>
       {/* Main 區塊 */}
       <main className="flex-1 flex flex-col items-center justify-center">
         <ul className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mt-10 w-full max-w-5xl">
@@ -35,12 +64,23 @@ export default function Home() {
             </li>
           ))}
         </ul>
+        <p className="mt-4 text-gray-300 text-center max-w-md">
+          Wont you give yourself a try? Wont you give? - The 1975
+        </p>
+        <div className="mt-6 flex flex-col items-center">
+          <Image
+            src="/img/DSCF4701.JPG"
+            alt="Howard Huang"
+            width={600}
+            height={200}
+            style={{ height: 'auto' }}
+            className="rounded object-contain"
+          />
+          <p className="mt-2 text-gray-400 text-center max-w-md">
+            Dont wait for the tide just to dip both your feet in - Beabadoobee
+          </p>
+        </div>
       </main>
-
-      {/* Footer 區塊 */}
-      <footer className="py-4 text-center text-sm border-t border-neutral-800">
-        &copy; {new Date().getFullYear()} Howard Huang | Frontend Projects
-      </footer>
     </div>
   );
 }

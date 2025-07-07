@@ -19,11 +19,17 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
+      <Header />
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>
+      <Footer />
+
     </html>
   );
 }
+
+import Header from "../components/Header";
+import Footer from "../components/Footer";
