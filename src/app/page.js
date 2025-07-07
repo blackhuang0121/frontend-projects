@@ -88,7 +88,7 @@ export default async function Home() {
           ))}
         </ul>
         {/* 最新文章區塊 */}
-        <section className="w-full max-w-2xl my-10">
+        {/* <section className="w-full max-w-2xl my-10">
           <h2 className="text-xl font-bold mb-4 text-yellow-300">最新文章</h2>
           <ul>
             {latestPosts.map((post) => (
@@ -101,6 +101,35 @@ export default async function Home() {
               </li>
             ))}
           </ul>
+        </section> */}
+        {/* 最新文章區塊 */}
+        <section className="w-full max-w-3xl my-10">
+          <h2 className="text-xl font-bold mb-4 text-yellow-300">最新文章</h2>
+          <div className="flex flex-col gap-6">
+            {latestPosts.map((post) => (
+              <Link
+                key={post.slug}
+                href={`/posts/${post.slug}`}
+                className="flex bg-neutral-800 rounded-xl overflow-hidden shadow hover:scale-105 transition"
+              >
+                {/* 左側圖片 */}
+                <div className="w-36 h-28 flex-shrink-0 relative">
+                  <Image src={post.cover} alt={post.title} fill className="object-cover" />
+                </div>
+                {/* 右側文字 */}
+                <div className="flex flex-col justify-between p-4 min-w-0 w-2/3">
+                  <h3 className="text-base font-bold mb-1">{post.title}</h3>
+                  <div className="text-gray-400 text-xs mb-2 flex gap-4">
+                    <span>旅行日期：{post.travel_date}</span>
+                    <span>發文日期：{post.date}</span>
+                  </div>
+                  <div className="text-xs text-gray-300 mb-2 truncate">
+                    {post.description.length > 30 ? post.description.slice(0, 30) + '...' : post.description}
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
         </section>
         <p className="mt-10 text-gray-400 text-center max-w-md">
           &quot;Won&apos;t you give yourself a try? Won&apos;t you give?&quot; - The 1975
