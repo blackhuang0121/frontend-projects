@@ -1,0 +1,67 @@
+body {
+    font-family: 'Noto Sans TC', sans-serif;
+    background: #f9f9f9;
+    margin: 0;
+    padding: 2rem;
+}
+
+h1 {
+    text-align: center;
+}
+
+.project-card {
+    background: #fff;
+    border-radius: 1rem;
+    box-shadow: 0 2px 12px rgba(0, 0, 0, 0.07);
+    padding: 1.5rem;
+    margin-bottom: 2rem;
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.project-card h2 {
+    margin-top: 0;
+}
+/* /怪奇物語 */
+.character-stranger {
+    background-color: #e9edc9;
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.7);
+    width: 300px;
+    padding: 20px;
+    transition: transform 0.2s;
+}
+
+.character-stranger:hover {
+    transform: scale(1.05);
+}
+
+.character-stranger .img-container {
+    text-align: center;
+    margin-bottom: 15px;
+}
+
+.character-stranger .img-container img {
+    width: 100px;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.4);
+}
+
+.character-stranger .info {
+    text-align: center;
+}
+
+.character-stranger .name {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.character-stranger .born,
+.character-stranger .gender,
+.character-stranger .status {
+    display: block;
+    font-size: 0.9em;
+    color: #777;
+    margin: 5px 0;
