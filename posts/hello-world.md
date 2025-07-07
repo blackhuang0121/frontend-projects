@@ -1,6 +1,6 @@
 ---
 title: "Hello World"
-cover: "/img/DSCF3065.JPG"
+cover: "/img/DSCF3065.jpg"
 description: "某次歐洲行的日常，鹿特丹小孩堤坊、騎單車..."
 tags: ["歐洲", "鹿特丹"]
 city: "鹿特丹"
