@@ -1,6 +1,8 @@
 'use client'
 import { useState, useEffect } from "react";
 import Image from "next/image";
+import Header from "@/components/Header";
+import Footer from "@/components/Footer";
 
 // 這裡可以放你的圖片列表
 const imagesData = [
@@ -51,10 +53,11 @@ export default function ImageSliderPage() {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-[#f9f9f9]">
+            <Header />
             <div className="bg-white rounded-2xl shadow-xl px-6 py-8 w-full max-w-2xl mx-auto">
                 <h1 className="text-3xl font-bold text-center mb-2">圖片滑動</h1>
                 <p className="text-center text-lg text-gray-700 mb-6">
-                    點擊左右按鈕切換顯示不同圖片，練習 DOM 操作和事件（React 實作）。
+                    點擊左右按鈕切換顯示不同圖片。
                 </p>
                 <div className="w-full max-w-2xl mx-auto relative overflow-hidden h-[400px]">
                     {/* 圖片淡入淡出區 */}
@@ -99,6 +102,7 @@ export default function ImageSliderPage() {
                     </div>
                 </div>
             </div>
+            <Footer />
         </div>
     );
 }
