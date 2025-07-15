@@ -15,7 +15,7 @@ const projects = [
   {
     name: '圖片滑動版',
     desc: '圖片滑動展示',
-    link: '/projects/image-slider/index.html',
+    link: '/projects/image-slider',
   },
   {
     name: '怪奇物語角色',
