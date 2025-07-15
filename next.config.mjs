@@ -1,4 +1,11 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {};
 
-export default nextConfig;
+// next.config.mjs (ESM)
+export default {
+    images: {
+        domains: [
+            "live.staticflickr.com",
+        ],
+    },
+};
