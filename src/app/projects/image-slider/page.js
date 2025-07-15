@@ -53,7 +53,6 @@ export default function ImageSliderPage() {
 
     return (
         <div className="flex flex-col items-center justify-center min-h-screen bg-[#f9f9f9]">
-            <Header />
             <div className="bg-white rounded-2xl shadow-xl px-6 py-8 w-full max-w-2xl mx-auto">
                 <h1 className="text-3xl font-bold text-center mb-2">圖片滑動</h1>
                 <p className="text-center text-lg text-gray-700 mb-6">
@@ -102,7 +101,6 @@ export default function ImageSliderPage() {
                     </div>
                 </div>
             </div>
-            <Footer />
         </div>
     );
 }
